@@ -1,7 +1,7 @@
-def call(String dockerImage, String dockerContainerName, String ec2User, String ec2Host, String ports = "80:80", String sshId = "ssh-ec2") {
+def call(String dockerImage, String dockerContainerName, String ports = "80:80", String sshId = "ssh-ec2") {
     sshagent(credentials: ["${sshId}"]) {
         sh """
-            ssh -o StrictHostKeyChecking=no ${ec2User}@${ec2Host} '
+            ssh -o StrictHostKeyChecking=no ${env.FLASK_CICD_EC2_USER}@${FLASK_CICD_EC2_HOST} '
             sudo docker pull ${dockerImage}
 
             sudo docker stop ${dockerContainerName} || true
