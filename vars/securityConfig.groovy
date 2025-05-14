@@ -1,7 +1,7 @@
-def call(String dockerImage = 'securelooper/flask-cicd',String containerName = "flask-cicd-container") {
+def call(String dockerImage = 'securelooper/flask-cicd',String dockerContainerName = "flask-cicd-container", String DockerCredentalsId = "docker-hub-creds") {
     return [
         DOCKER_IMAGE: ${dockerImage},
-        CONTAINER_NAME: ${dockerImage},
-        DOCKER_CREDENTIALS_ID: 'docker-hub-creds'
+        CONTAINER_NAME: ${dockerContainerName},
+        DOCKER_CREDENTIALS_ID: ${DockerCredentalsId}
     ]
 }
