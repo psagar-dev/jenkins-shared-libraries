@@ -1,4 +1,4 @@
-def call(String venvDir = 'venv', String requirements = 'requirements.txt') {
+def call(String venvDir = 'venv') {
     sh """
         ./${venvDir}/bin/python -m pytest tests
     """
